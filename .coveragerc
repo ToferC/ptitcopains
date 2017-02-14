@@ -1,0 +1,5 @@
+[run]
+include = pc_app/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
