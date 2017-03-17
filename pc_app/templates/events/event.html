@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+
+{% block content %}
+<h1>{{event.title}}</h1>
+
+{% thumbnail event.image "400x300" crop="center" as im %}
+    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+{% endthumbnail %}
+
+<H3>{{event.date}}</H3>
+
+<h3>Theme: {{event.theme}}</h3>
+
+<p>{{event.description}}</p>
+
+{% for gallery_image in gallery_images %}
+
+{% thumbnail gallery_image.image "300x300" crop="center" as im %}
+    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+{% endthumbnail %}
+
+{% endfor %}
+
+{% endblock content %}
