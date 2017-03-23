@@ -1,8 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
 from pc_app.users.models import User
-from sorl.thumbnail import ImageField
-
 
 # Models
 
@@ -24,6 +22,9 @@ class Event(models.Model):
 		self.slug = slugify(f"{self.title}-{self.date}")
 		super(Event, self).save(*args, **kwargs)
 
+	def __str__(self):
+		return self.title
+
 
 class Parent(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -35,6 +36,9 @@ class Parent(models.Model):
 	def save(self, *args, **kwargs):
 		self.slug = slugify(f"{self.last_name}-{self.first_name}")
 		super(Parent, self).save(*args, **kwargs)
+
+	def __str__(self):
+		return f"{self.last_name}, {self.first_name}"
 
 
 class Child(models.Model):
@@ -50,10 +54,14 @@ class Child(models.Model):
 
 	class Meta:
 		ordering = ["birthday"]
+		verbose_name_plural = "children"
 
 	def save(self, *args, **kwargs):
 		self.slug = slugify(f"{self.last_name}-{self.first_name}")
 		super(Child, self).save(*args, **kwargs)
+
+	def __str__(self):
+		return f"{self.last_name}, {self.first_name}"
 
 
 class GalleryImage(models.Model):
@@ -68,6 +76,9 @@ class GalleryImage(models.Model):
 	class Meta:
 		ordering = ["published_date"]
 
+	def __str__(self):
+		return self.title
+
 
 class Announcement(models.Model):
 	author = models.ForeignKey(User)
@@ -78,3 +89,6 @@ class Announcement(models.Model):
 
 	class Meta:
 		ordering = ["date"]
+
+	def __str__(self):
+		return self.title

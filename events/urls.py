@@ -17,5 +17,6 @@ urlpatterns = [
     url(r'^event/(?P<event_slug>[\w\-]+)/$', views.event, name='event'),
 
     # Add content urls
-    url(r'^add_event/$', views.add_event, name="add_event"),
-]
+    url(r'^add_galleryimage/(?P<pk>\d+)/$', views.add_galleryimage, name="add_galleryimage"),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

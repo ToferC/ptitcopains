@@ -48,13 +48,13 @@ DJANGO_APPS = [
 
     # Admin
     'django.contrib.admin',
-    'events'
 ]
 THIRD_PARTY_APPS = [
     'crispy_forms',  # Form layouts
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    'imagekit', # image modification
 ]
 
 # Apps specific for this project go here.
@@ -62,6 +62,7 @@ LOCAL_APPS = [
     # custom users app
     'pc_app.users.apps.UsersConfig',
     # Your stuff: custom apps go here
+    'events',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -89,6 +90,7 @@ MIGRATION_MODULES = {
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#debug
 DEBUG = env.bool('DJANGO_DEBUG', False)
+TEMPLATE_DEBUG = DEBUG
 
 # FIXTURE CONFIGURATION
 # ------------------------------------------------------------------------------
