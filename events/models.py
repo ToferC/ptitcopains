@@ -4,6 +4,7 @@ from pc_app.users.models import User
 
 # Models
 
+
 class Event(models.Model):
 	title = models.CharField(max_length=128)
 	date = models.DateField('event date')

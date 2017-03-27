@@ -1,1 +1,45 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+Mes P'tits Copains
+Groupe de jeu francophone / Francophone playgroup
+
+<hr>
+<img src="{% static '/images/childrenmusic.jpg' %}" width="300" title="Children playing music"/>
+<hr>
+
+<a class="btn btn-success btn-md" style="background:black" href="{% url 'index' %}">
+    Voir nos evenments</a>
+
+<hr>
+
+<div class="row col-md-6">
+Trinity United Church, 
+1099 avenue Maitland, Ottawa
+
+Horaire:  lundi et vendredi, 9h00 – 11h30 
+
+Contributions: 20$ par enfant par année par jour (pour le lundi ou vendredi) 
+ou 1$ par enfant par visite
+Âges: 0 – 6 ans     
+Contact: Gwen Salaun 613 -228-0095
+mespetitscopains@gmail.com
+</div>
+
+<div class="row col-md-6">
+Trinity United Church, 
+1099 Maitland Avenue, Ottawa 
+
+Schedule:  Monday & Friday, 9:00 – 11:30am 
+
+Cost: 20.00 per child, per day, per year (either Monday or Friday) 
+Or $1 per child per Drop-in visit 
+Ages: 0 – 6years 
+Contact: Gwen Salaun 613 -228-0095 
+mespetitscopains@gmail.com
+</div>
+
+
+{% endblock content %}
