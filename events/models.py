@@ -20,7 +20,7 @@ class Event(models.Model):
 		verbose_name_plural = "events"
 
 	def save(self, *args, **kwargs):
-		self.slug = slugify(f"{self.title}-{self.date}")
+		self.slug = slugify("{}-{}".format(self.title, self.date))
 		super(Event, self).save(*args, **kwargs)
 
 	def __str__(self):
@@ -35,7 +35,7 @@ class Parent(models.Model):
 	slug = models.SlugField(unique=True, max_length=255)
 
 	def save(self, *args, **kwargs):
-		self.slug = slugify(f"{self.last_name}-{self.first_name}")
+		self.slug = slugify("{}={}".format(self.last_name, self.first_name))
 		super(Parent, self).save(*args, **kwargs)
 
 	def __str__(self):
@@ -58,11 +58,11 @@ class Child(models.Model):
 		verbose_name_plural = "children"
 
 	def save(self, *args, **kwargs):
-		self.slug = slugify(f"{self.last_name}-{self.first_name}")
+		self.slug = slugify("{}-{}".format(self.last_name, self.first_name))
 		super(Child, self).save(*args, **kwargs)
 
 	def __str__(self):
-		return f"{self.last_name}, {self.first_name}"
+		return "{}, {}".format(self.last_name, self.first_name)
 
 
 class GalleryImage(models.Model):
