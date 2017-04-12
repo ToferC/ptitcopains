@@ -21,6 +21,7 @@ django-model-utils==2.6.1
 
 # Images
 Pillow==4.0.0
+django-imagekit==4.0
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
