@@ -39,7 +39,7 @@ class Parent(models.Model):
 		super(Parent, self).save(*args, **kwargs)
 
 	def __str__(self):
-		return f"{self.last_name}, {self.first_name}"
+		return "{}-{}".format(self.last_name, self.first_name)
 
 
 class Child(models.Model):
