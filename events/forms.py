@@ -14,7 +14,7 @@ from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions, Inl
 
 # Forms
 
-class GalleryImageForm(forms.ModelForm):
+class GalleryImageForm(forms.ModelForm): 
 	"""Form for users to add images"""
 
 	class Meta:

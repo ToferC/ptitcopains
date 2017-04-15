@@ -19,7 +19,6 @@ class AnnouncementAdmin(admin.ModelAdmin):
 	list_display = ('title', 'author', 'published')
 
 
-
 admin.site.register(Event, EventAdmin)
 admin.site.register(Announcement, AnnouncementAdmin)
 admin.site.register(Child, ChildAdmin)

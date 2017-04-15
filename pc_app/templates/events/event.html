@@ -15,8 +15,9 @@
 <h2>Gallery</h2>
 
 {% if user.is_authenticated %}
-<a class="btn btn-primary" href="{% url 'add_galleryimage' pk=event.pk %}">Add an image!</a>
-{% else %}<p>Log-in to upload a photo!</p>
+    <a class="btn btn-primary" href="{% url 'add_galleryimage' pk=event.pk %}">Add an image!</a>
+{% else %}
+    <p>Log-in to upload a photo!</p>
 {% endif %}
 
 <br><br>
@@ -24,7 +25,7 @@
 <div class="row col-lg-12">
 	{% for gallery_image in gallery_images %}
 
-	<img src="{{gallery_image.image.url }}" width="300" title="{{gallery_image.title}}"/>
+	   <img src="{{gallery_image.image.url }}" width="300" title="{{gallery_image.title}}"/>
 
 	{% endfor %}
 </div>
