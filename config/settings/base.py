@@ -62,7 +62,7 @@ LOCAL_APPS = [
     # custom users app
     'pc_app.users.apps.UsersConfig',
     # Your stuff: custom apps go here
-    'events',
+    'carecentres',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

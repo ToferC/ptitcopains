@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+	{{carecentre.name}}
+{% endblock title %}
+
+{% block brand %}
+	{{carecentre.name}}
+{% endblock brand %}
+
+{% block content %}
+
+<h3>Events</h3>
+{% for event in events %}
+	<a class="btn btn-success btn-md" style="background:black" href="{% url 'event' carecentre_slug=carecentre.slug event_slug=event.slug %}">
+    {{ event.title }} - {{event.date}}</a>
+{% endfor %}
+
+
+{% endblock content %}

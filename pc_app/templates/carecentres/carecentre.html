@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load imagekit %}
+
+{% block title %}
+	{{carecentre.name}}
+{% endblock title %}
+
+{% block brand %}
+	{{carecentre.name}}
+{% endblock brand %}
+
+{% block content %}
+
+<h3>{{carecentre.tagline}}</h3>
+
+<hr>
+{% thumbnail '400x300' carecentre.image %}
+<hr>
+
+<a class="btn btn-success btn-md" style="background:black" href="{% url 'events' carecentre_slug=carecentre.slug %}">
+    Voir nos evenments</a>
+
+<hr>
+<div class="row">
+	<div class="col-md-5">
+		{{ carecentre.english_description }}
+	</div>
+
+	<div class="col-md-2"></div>
+
+	<div class="col-md-5">
+		{{ carecentre.french_description }}
+	</div>
+</div>
+
+<div class="row">
+	<hr>
+</div>
+
+<div class="row">
+	<div class="col-md-5">
+		<h3>Information</h3>
+		Ages: {{carecentre.age_groups}}
+		Rates: {{carecentre.rates}}
+		Openings: {{carecentre.openings}}
+		Features: {{carecentre.features}}
+		Hours of Operation: {{carecentre.hours_of_operation}}
+	</div>
+
+	<div class="col-md-2"></div>
+
+	<div class="col-md-5">
+		<h3>Location</h3>
+		{{carecentre.street}}
+		{{carecentre.city}}
+		{{carecentre.province_or_state}}
+		{{carecentre.postal_code}}
+		{{carecentre.phone}}
+		{{carecentre.email}}
+	</div>
+</div>
+
+<div class="row">
+	<div>
+		<h1>{{announcement.title}}</h1>
+		<p>{{announcement.content}}</p>
+	</div>
+</div>
+
+{% endblock content %}

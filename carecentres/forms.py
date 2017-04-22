@@ -6,7 +6,7 @@ from django.db.models import Q
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 
-from events.models import Event, Announcement, Parent, Child, GalleryImage 
+from carecentres.models import Event, Announcement, Parent, Child, GalleryImage, CareCentre 
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field, Fieldset

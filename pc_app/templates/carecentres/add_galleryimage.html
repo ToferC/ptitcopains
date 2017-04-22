@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+	{{carecentre.name}}
+{% endblock title %}
+
+{% block brand %}
+	{{carecentre.name}}
+{% endblock brand %}
+
+{% block content %}
+	<h3>Add an image to {{ event.title }}</h3>
+	{% crispy galleryimage_form %}
+{% endblock content %}

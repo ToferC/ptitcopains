@@ -1,9 +1,12 @@
-{% load staticfiles i18n %}<!DOCTYPE html>
+{% load staticfiles i18n %}
+{% load imagekit %}
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}Mes P'tit Copains{% endblock title %}</title>
+    <title>{% block title %}Open CareCentres{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="ToferC">
@@ -31,7 +34,11 @@
     <div class="m-b-1">
       <nav class="navbar navbar-dark navbar-static-top bg-inverse">
         <div class="container">
-          <a class="navbar-brand" href="/">Mes P'tit Copains</a>
+          <a class="navbar-brand" href="/">
+            {% block brand %}
+              Open CareCentres
+            {% endblock brand %}
+          </a>
           <button type="button" class="navbar-toggler hidden-sm-up pull-xs-right" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
             &#9776;
           </button>

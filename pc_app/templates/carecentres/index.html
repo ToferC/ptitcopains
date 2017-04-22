@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+	Open CareCentres
+{% endblock title %}
+
+{% block brand %}
+	Open CareCentres
+{% endblock brand %}
+
+{% block content %}
+
+<hr>
+<h3>Care Centres</h3>
+{% for carecentre in carecentres %}
+	<a class="btn btn-success btn-md" style="background:black" href="{% url 'carecentre' carecentre_slug=carecentre.slug %}">{{ carecentre.name }}</a>
+{% endfor %}
+
+
+{% endblock content %}
