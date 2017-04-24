@@ -95,13 +95,13 @@ def add_event(request):
 # Add content views
 
 @login_required
-def add_galleryimage(request, pk):
+def add_galleryimage(request, carecentre_slug, pk):
 
     user = request.user
     parent = Parent.objects.get(user=user)
     event = Event.objects.get(pk=pk)
     carecentre = CareCentre.objects.get(
-    	carecentre__event=event)
+    	slug=carecentre_slug)
 
     context_dict = {}
 
@@ -115,7 +115,8 @@ def add_galleryimage(request, pk):
 
             galleryimage_form.save(parent=parent, event=event, commit=True)
 
-            return HttpResponseRedirect("/carecentres/event/{}".format(event.slug))
+            return HttpResponseRedirect("/carecentres/{}/event/{}".format(
+            	carecentre.slug, event.slug))
 
         else:
             print (galleryimage_form.errors)
