@@ -20,6 +20,8 @@ urlpatterns = [
     url(r'^(?P<carecentre_slug>[\w\-]+)/event/(?P<event_slug>[\w\-]+)/$', views.event, name='event'),
 
     # Add content urls
+    url(r'^/add_carecentre/$', views.add_carecentre, name="add_carecentre"),
     url(r'^(?P<carecentre_slug>[\w\-]+)/add_galleryimage/(?P<pk>\d+)/$', views.add_galleryimage, name="add_galleryimage"),
+    url(r'^(?P<carecentre_slug>[\w\-]+)/add_event/$', views.add_event, name="add_event"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

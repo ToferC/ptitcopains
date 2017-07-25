@@ -14,6 +14,27 @@ from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions, Inl
 
 # Forms
 
+class CareCentreForm(forms.ModelForm): 
+	"""Form for users to add events"""
+
+	class Meta:
+		model = CareCentre
+		fields = "__all__"
+		exclude = ['owner', 'administrators', 'slug']
+		#widgets = {'date': SelectDateWidget()}
+
+	def __init__(self, *args, **kwargs):
+
+		super(CareCentreForm, self).__init__(*args, **kwargs)
+
+		self.helper = FormHelper(self)
+		self.helper.layout.append(
+			FormActions(
+				HTML("""<br><a committment="button" class="btn btn-default"
+					ref="/">Cancel</a> """),
+				Submit('save', 'Save'),))
+
+
 class GalleryImageForm(forms.ModelForm): 
 	"""Form for users to add images"""
 
@@ -37,5 +58,33 @@ class GalleryImageForm(forms.ModelForm):
 		instance = super(GalleryImageForm, self).save(commit=False)
 		instance.owner=parent
 		instance.event=event
+		instance.save()
+		return instance
+
+
+class EventForm(forms.ModelForm): 
+	"""Form for users to add events"""
+
+	class Meta:
+		model = Event
+		fields = "__all__"
+		exclude = ['owner', 'published_date', 'carecentre', 'slug']
+		widgets = {'date': SelectDateWidget()}
+
+	def __init__(self, *args, **kwargs):
+
+		super(EventForm, self).__init__(*args, **kwargs)
+
+		self.helper = FormHelper(self)
+		self.helper.layout.append(
+			FormActions(
+				HTML("""<br><a committment="button" class="btn btn-default"
+					ref="events/event/{{ event.slug }}">Cancel</a> """),
+				Submit('save', 'Save'),))
+
+	def save(self, parent, carecentre, commit=False):
+		instance = super(EventForm, self).save(commit=False)
+		instance.owner=parent
+		instance.carecentre=carecentre
 		instance.save()
 		return instance

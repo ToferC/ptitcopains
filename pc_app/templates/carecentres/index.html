@@ -16,5 +16,13 @@
 	<a class="btn btn-success btn-md" style="background:black" href="{% url 'carecentre' carecentre_slug=carecentre.slug %}">{{ carecentre.name }}</a>
 {% endfor %}
 
+<hr>
+
+{% if user.is_authenticated %}
+    <a class="btn btn-primary" href="{% url 'add_carecentre' %}">Add a Care Centre!</a>
+{% else %}
+    <p>Log-in to add your care centre to our site!</p>
+{% endif %}
+
 
 {% endblock content %}

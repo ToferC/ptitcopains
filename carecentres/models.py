@@ -36,8 +36,9 @@ class CareCentre(models.Model):
 	province_or_state = models.CharField(max_length=128, blank=True, null=True)
 	postal_code = models.CharField(max_length=7, blank=True, null=True)
 	country = models.CharField(max_length=128, blank=True, null=True)
-	lattitude = models.FloatField(blank=True, null=True)
+	latitude = models.FloatField(blank=True, null=True)
 	longitude = models.FloatField(blank=True, null=True)
+	zoom = models.IntegerField(blank=True, null=True)
 	phone = models.CharField(max_length=12, blank=True, null=True)
 	email = models.EmailField(blank=True, null=True)
 	slug = models.SlugField(unique=True, max_length=255)
@@ -63,6 +64,9 @@ class Event(models.Model):
 		format='JPEG',
 		options={'quality': 120})
 	published = models.BooleanField(default=True)
+	latitude = models.FloatField(blank=True, null=True)
+	longitude = models.FloatField(blank=True, null=True)
+	zoom = models.IntegerField(blank=True, null=True)
 	slug = models.SlugField(unique=True, max_length=255)
 
 	class Meta:
@@ -97,6 +101,7 @@ class Child(models.Model):
 	last_name = models.CharField(max_length=64)
 	first_name = models.CharField(max_length=64)
 	carecentre = models.ForeignKey(CareCentre)
+	allergies = models.TextField(max_length=1000, blank=True, null=True)
 	birthday = models.DateField(blank=True, null=True)
 	image = models.ImageField(upload_to='children_images/%Y/%m/%d/%H_%M_%S',
 		default='children_images/smiley.jpg')
